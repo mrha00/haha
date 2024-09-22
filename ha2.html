@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ikun</title>
+    <style>
+        /* 初始隐藏图片容器 */
+        .image-container {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <p style="background-color: red;">蔡徐坤</p>
+    <h1 style="background-color: green;">欢迎</h1>
+    <p>Windows10</p>
+    <input type="text" id="nameInput" placeholder="你是小黑子还是真爱粉">
+    <!-- 隐藏的图片容器 -->
+    <div class="image-container" id="imageContainer">
+        <img id="dynamicImage" alt="示例图片" width="400" height="300">
+    </div>
+
+    <script>
+        // 获取输入框元素
+        const nameInput = document.getElementById('nameInput');
+        // 获取图片容器元素
+        const imageContainer = document.getElementById('imageContainer');
+        // 获取动态图片元素
+        const dynamicImage = document.getElementById('dynamicImage');
+
+        // 监听键盘按键事件
+        nameInput.addEventListener('keydown', function(event) {
+            // 判断是否按下了回车键
+            if (event.key === 'Enter') {
+                // 阻止表单提交或页面刷新
+                event.preventDefault();
+                
+                // 获取输入的值
+                const inputValue = nameInput.value.trim();
+
+                // 根据输入的内容显示不同的图片
+                if (inputValue === '小黑子') {
+                    dynamicImage.src = 'ikun.gif'; // 设置小黑子的图片
+                } else if (inputValue === '真爱粉') {
+                    dynamicImage.src = 'kun1.jpg'; // 设置真爱粉的图片
+                } else {
+                    dynamicImage.src = 'kun0.gif'; // 其他情况的默认图片
+                }
+
+                // 显示图片容器
+                imageContainer.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
